@@ -140,7 +140,9 @@ extension MasterViewController {
         if refreshControl!.isRefreshing {
             refreshControl!.endRefreshing()
         }
-        fetchJobData()
+        let selectedScope = searchBar.selectedScopeButtonIndex
+        let category = SelectedFilter(rawValue: searchBar.scopeButtonTitles![selectedScope])
+        filterContentForSearchText(searchBar.text!, category: category)
     }
 
     func handleError(error: Error) {
