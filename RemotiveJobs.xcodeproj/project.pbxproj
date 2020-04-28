@@ -86,8 +86,8 @@
 		4E017A6B24573116006130CB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				4E017A7B24576A2F006130CB /* TableViewCells */,
 				4E017A6C24573116006130CB /* Models */,
+				4E017A7B24576A2F006130CB /* TableViewCells */,
 				4E017A6D24573116006130CB /* Utilities */,
 				4E017A6F24573116006130CB /* ViewControllers */,
 			);
@@ -115,8 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				4E017A7024573116006130CB /* DetailViewController.swift */,
-				4E017A802457CE61006130CB /* WebViewController.swift */,
 				4E017A7124573116006130CB /* MasterViewController.swift */,
+				4E017A802457CE61006130CB /* WebViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -365,6 +365,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8DT5Y3HP4L;
 				INFOPLIST_FILE = RemotiveJobs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -386,6 +387,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8DT5Y3HP4L;
 				INFOPLIST_FILE = RemotiveJobs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

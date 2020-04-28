@@ -22,6 +22,7 @@ class MasterViewController: UITableViewController {
     var categories: [String: String] = [String: String]()
     var companyNames: [String: String] = [String: String]()
     var selectedFilter: SelectedFilter?
+    let dateFormatter = DateFormatter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,17 @@ class MasterViewController: UITableViewController {
         tableView.estimatedRowHeight = 145
         
         searchBar.isHidden = true
+
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        dateFormatter.timeStyle = DateFormatter.Style.long
+
+        // set up the refresh control
+        let now = Date()
+        let updateString = "Last Updated at \(dateFormatter.string(from: now))"
+        refreshControl = UIRefreshControl()
+        refreshControl!.attributedTitle = NSAttributedString(string: updateString)
+        refreshControl!.addTarget(self, action: #selector(refresh(_:)), for: UIControl.Event.valueChanged)
+        tableView?.addSubview(refreshControl!)
 
         activityIndicator.center = view.center
         activityIndicator.hidesWhenStopped = true
@@ -41,24 +53,7 @@ class MasterViewController: UITableViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
-        Remotive.shared.fetchJobData {[weak self] (legal, result, error) in
-            DispatchQueue.main.async {
-                if error != nil {
-                    self!.handleError(error: error!)
-                } else {
-                    self!.legalNotice = legal
-                    if let jobs = result {
-                        self!.objects = jobs
-                        self!.filteredObjects = jobs
-                        self!.tableView.reloadData()
-                        self!.title = "\(jobs.count) Jobs Found"
-                        self!.activityIndicator.isHidden = true
-                        self!.searchBar.isHidden = false
-                        self!.searchBar.scopeButtonTitles = SelectedFilter.allCases.map { $0.rawValue }
-                    }
-                }
-            }
-        }
+        fetchJobData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -114,6 +109,40 @@ class MasterViewController: UITableViewController {
 extension MasterViewController {
     // MARK: - Utility methods
         
+    func fetchJobData() {
+        Remotive.shared.fetchJobData {[weak self] (legal, result, error) in
+            DispatchQueue.main.async {
+                if error != nil {
+                    self!.handleError(error: error!)
+                } else {
+                    self!.legalNotice = legal
+                    if let jobs = result {
+                        self!.objects = jobs
+                        self!.filteredObjects = jobs
+                        self!.tableView.reloadData()
+                        self!.title = "\(jobs.count) Jobs Found"
+                        self!.activityIndicator.isHidden = true
+                        self!.searchBar.isHidden = false
+                        self!.searchBar.scopeButtonTitles = SelectedFilter.allCases.map { $0.rawValue }
+                    }
+                }
+            }
+        }
+    }
+
+    @objc
+    func refresh(_ sender: AnyObject) {
+        
+        // update "last updated" title for refresh control
+        let now = Date()
+        let updateString = "Last Updated at \(dateFormatter.string(from: now))"
+        refreshControl!.attributedTitle = NSAttributedString(string: updateString)
+        if refreshControl!.isRefreshing {
+            refreshControl!.endRefreshing()
+        }
+        fetchJobData()
+    }
+
     func handleError(error: Error) {
         let errorMessage = error.localizedDescription
         let alert: UIAlertController = UIAlertController(title: NSLocalizedString("Cannot complete the process", comment: ""), message: errorMessage, preferredStyle: .actionSheet)
@@ -136,7 +165,8 @@ extension MasterViewController {
                     filteredObjects.append(object)
                 }
             case .date:
-                if job.publication_date.lowercased().contains(searchText.lowercased()) {
+                let jobDate = Remotive.shared.convertDate(dateString: job.publication_date)
+                if jobDate.lowercased().contains(searchText.lowercased()) {
                     filteredObjects.append(object)
                 }
             case .category:
@@ -194,6 +224,9 @@ extension MasterViewController: UISearchBarDelegate {
         filteredObjects = objects
         searchBar.text = ""
         searchBar.endEditing(true)
+        let selectedScope = searchBar.selectedScopeButtonIndex
+        let category = SelectedFilter(rawValue: searchBar.scopeButtonTitles![selectedScope])
+        filterContentForSearchText("", category: category)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

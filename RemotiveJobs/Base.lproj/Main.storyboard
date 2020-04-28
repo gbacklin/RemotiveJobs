@@ -90,16 +90,16 @@
                                                     <rect key="frame" x="0.0" y="59" width="350" height="20"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koD-l1-1hx">
-                                                            <rect key="frame" x="0.0" y="0.0" width="250" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="245" height="20"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="250" id="PYR-ez-O4z"/>
+                                                                <constraint firstAttribute="width" constant="245" id="PYR-ez-O4z"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="04/20/2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gg1-gt-bM6">
-                                                            <rect key="frame" x="258" y="0.0" width="92" height="20"/>
+                                                            <rect key="frame" x="253" y="0.0" width="97" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
