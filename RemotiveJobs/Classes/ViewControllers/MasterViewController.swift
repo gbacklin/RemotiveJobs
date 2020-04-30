@@ -28,7 +28,7 @@ class MasterViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 145
+        tableView.estimatedRowHeight = 155
         
         searchBar.isHidden = true
 
@@ -107,7 +107,7 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 145
+        return 155
     }
 }
 
