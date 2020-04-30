@@ -14,6 +14,7 @@ class JobTableViewCell: UITableViewCell {
     @IBOutlet weak var datePosted: UILabel!
     @IBOutlet weak var category: UILabel!
     @IBOutlet weak var location: UILabel!
+    @IBOutlet weak var cellShadowView: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

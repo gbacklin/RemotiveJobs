@@ -61,6 +61,11 @@ class MasterViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
 
+    @IBAction func resetTableView(_ sender: Any) {
+        DispatchQueue.main.async {
+            self.tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: true)
+        }
+    }
     // MARK: - Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
