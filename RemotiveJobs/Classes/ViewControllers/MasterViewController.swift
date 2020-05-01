@@ -9,6 +9,7 @@
 import UIKit
 
 let QUERY = "https://remotive.io/api/remote-jobs"
+let CELL_HEIGHT: CGFloat = 165.0
 
 class MasterViewController: UITableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
@@ -28,7 +29,7 @@ class MasterViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 155
+        tableView.estimatedRowHeight = CELL_HEIGHT
         
         searchBar.isHidden = true
 
@@ -107,7 +108,7 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 155
+        return CELL_HEIGHT
     }
 }
 
