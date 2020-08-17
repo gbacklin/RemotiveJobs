@@ -366,7 +366,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8DT5Y3HP4L;
 				INFOPLIST_FILE = RemotiveJobs/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
@@ -393,7 +393,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8DT5Y3HP4L;
 				INFOPLIST_FILE = RemotiveJobs/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
