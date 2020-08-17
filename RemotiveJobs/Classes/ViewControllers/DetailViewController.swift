@@ -17,6 +17,7 @@ class DetailViewController: UITableViewController {
     @IBOutlet weak var jobTypeTableViewCell: UITableViewCell!
     @IBOutlet weak var locationTableViewCell: UITableViewCell!
     @IBOutlet weak var salaryTableViewCell: UITableViewCell!
+    @IBOutlet weak var viewListingTableViewCell: UITableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +31,11 @@ class DetailViewController: UITableViewController {
             jobTypeTableViewCell.textLabel?.text = job?.job_type
             locationTableViewCell.textLabel?.text = job?.candidate_required_location
             salaryTableViewCell.textLabel?.text = job?.salary
+            viewListingTableViewCell.textLabel?.text = "View Listing"
+            viewListingTableViewCell.accessoryType = .disclosureIndicator
+            viewListingTableViewCell.isUserInteractionEnabled = true
         } else {
-            titleTableViewCell.textLabel?.text = "Select a Job."
+            titleTableViewCell.textLabel?.text = "Select a job from the Job List."
             titleTableViewCell.detailTextLabel?.text = ""
             companyTableViewCell.textLabel?.text = ""
             descriptionTableViewCell.textLabel?.text = ""
@@ -39,6 +43,9 @@ class DetailViewController: UITableViewController {
             jobTypeTableViewCell.textLabel?.text = ""
             locationTableViewCell.textLabel?.text = ""
             salaryTableViewCell.textLabel?.text = ""
+            viewListingTableViewCell.textLabel?.text = ""
+            viewListingTableViewCell.accessoryType = .none
+            viewListingTableViewCell.isUserInteractionEnabled = false
         }
     }
     

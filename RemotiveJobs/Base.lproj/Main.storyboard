@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H1p-Uh-vWS">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -338,6 +338,7 @@
                         <outlet property="locationTableViewCell" destination="HZ7-uw-TFF" id="4A0-H9-ipU"/>
                         <outlet property="salaryTableViewCell" destination="d6a-ri-Et4" id="xS5-AN-usD"/>
                         <outlet property="titleTableViewCell" destination="8X2-Ln-D7g" id="q3T-LC-5VX"/>
+                        <outlet property="viewListingTableViewCell" destination="Rgg-Tf-pJJ" id="VSy-h5-9Lp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vf2-yi-AuH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
