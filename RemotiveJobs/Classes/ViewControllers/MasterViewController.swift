@@ -8,7 +8,7 @@
 
 import UIKit
 
-let QUERY = "https://remotive.io/api/remote-jobs"
+let QUERY = "https://remotive.com/api/remote-jobs"
 let CELL_HEIGHT: CGFloat = 165.0
 
 class MasterViewController: UITableViewController {
